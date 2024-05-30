@@ -12,6 +12,7 @@ using Exiled.Loader;
 using MEC;
 
 using PlayerRoles;
+using PlayerStatsSystem;
 using UnityEngine;
 
 using Player = Exiled.API.Features.Player;
@@ -211,6 +212,7 @@ public class PlayerHandlers
         if (plugin.Config.HealthValues != null && plugin.Config.HealthValues.TryGetValue(ev.Player.Role.Type, out int amount))
         {
             ev.Player.MaxHealth = amount;
+            // ev.Player.ReferenceHub.playerStats.GetModule<MaxHealthStat>().CurValue = amount - 100f;
             ev.Player.Health = amount;
         }
 
